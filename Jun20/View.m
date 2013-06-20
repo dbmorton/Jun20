@@ -79,13 +79,17 @@
 	
 	
 	
-	NSLog(@"%@", [UIFont familyNames]);
-	NSLog(@"AEZweddingdings: %@", [UIFont fontNamesForFamilyName:@"AEZweddingdings"] );
-	//See more at: http://refactr.com/blog/2012/09/ios-tips-custom-fonts/#sthash.hGzHaxqN.dpuf
+	
+	//This helped me figure out fonts available
+	//Sometimes its tricky to figure out imported font names....below helps check name to use for fontWithName
+	//NSLog(@"%@", [UIFont familyNames]);
 
-	//UIFont *importedFont = [UIFont fontNamesForFamilyName:@"NewWGL4Font"];
-	//point = CGPointMake(0,0);
-	//[@"aAHh" drawAtPoint: point withFont: importedFont];
+	NSString *importedStringExample=@"abcdefg";
+	UIFont *importedFont=[UIFont fontWithName:@"AEZ wedding dings" size:28.0];
+	CGSize importedFontsize = [importedStringExample sizeWithFont: importedFont];
+	//put under shalom
+	point = CGPointMake(-importedFontsize.width/2,-self.bounds.size.height/2+size.height);
+	[importedStringExample drawAtPoint: point withFont: importedFont];
 	
 	
 	
@@ -186,6 +190,7 @@
 	//This helped me figure out right time zone so I got right time
 	//NSLog(@"%@", [NSTimeZone knownTimeZoneNames]);
 	
+		
 	
 	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 	[formatter setDateStyle:NSDateFormatterShortStyle];
